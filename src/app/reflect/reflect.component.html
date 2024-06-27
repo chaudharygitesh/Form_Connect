@@ -1,0 +1,16 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<form [formGroup]="ForgetPassword" (ngSubmit)="onSubmit()" class="container my-5">
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" formControlName="email" placeholder="Enter your Email" class="form-control">
+      <div *ngIf="ForgetPassword.get('email')?.invalid && ForgetPassword.get('email')?.touched" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="PassKey" class="form-label">Password</label>
+    <input type="password" formControlName="PassKey" name="PassKey" placeholder="Enter your PassKey" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

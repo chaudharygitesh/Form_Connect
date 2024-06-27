@@ -1,0 +1,107 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="registration.component.scss">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="mb-4">Registration Form</h2>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" CopyPasteBlock>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your First Name" required>
+            <div *ngIf="registrationForm.get('firstName')?.touched &&
+            registrationForm.get('firstName')?.invalid" style="color: red;">First Name Required</div>
+   </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control"  formControlName="lastName" placeholder="Enter your Last Name" required>
+            <div *ngIf="registrationForm.get('lastName')?.touched &&
+            registrationForm.get('lastName')?.invalid" style="color: red;">Last Name Required</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control"  formControlName="email" placeholder="Enter your Email" required>
+            <div *ngIf="registrationForm.get('email')?.touched &&
+            registrationForm.get('email')?.invalid" style="color: red;">Email Required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="number" class="form-control" formControlName="phone"  placeholder="Enter your Phone"required>
+            <div *ngIf="registrationForm.get('phone')?.touched &&
+            registrationForm.get('phone')?.invalid" style="color: red;">Phone Required</div>
+         
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea class="form-control"  formControlName="address" placeholder="Enter your Address" required></textarea>
+            <div *ngIf="registrationForm.get('address')?.touched &&
+            registrationForm.get('address')?.invalid" style="color: red;">Address Required</div>
+          
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control"  formControlName="age" placeholder="Enter your Age" required min="0">
+            <div *ngIf="registrationForm.get('age')?.touched &&
+            registrationForm.get('age')?.invalid" style="color: red;">Age Required</div>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control"  formControlName="gender" placeholder="Enter your Gender" required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>    
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div *ngIf="registrationForm.get('gender')?.touched &&
+            registrationForm.get('gender')?.invalid" style="color: red;">Gender Required</div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Case Sensitive" required #pw>
+            <div *ngIf="registrationForm.get('password')?.touched &&
+            registrationForm.get('password')?.invalid" style="color: red;">Password Required</div><br>
+
+            <div class="checkbox-wrapper-63">
+              <label class="switch">
+                <input type="checkbox" id="showPassword" (click)="togglePasswordVisibility(pw)">
+                <span class="slider"></span>
+              </label>
+            </div>
+
+   </div>
+   <div class="form-group">
+    <label for="ConfirmPassword">Confirm Password</label>
+    <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password" required
+    #cpw (keyup)='checkPasswords(pw.value, cpw.value)'>
+    <div *ngIf="registrationForm.get('ConfirmPassword')?.touched &&
+    registrationForm.get('ConfirmPassword')?.invalid" style="color: red;">Confirm Password</div>
+    <div *ngIf='!passwordsMatching &&   isConfirmPasswordDirty '>
+      Passwords did not match
+    </div>
+</div>
+<div>
+  <div class="form-group">
+  <label for="country">Country:</label>
+  <select class="form-control"  placeholder="Enter your country" formControlName="country" [(ngModel)]="selectedCountry" (change)="onCountryChange()">
+  <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+  </select>
+  </div>
+</div>
+      <div class="form-group">
+  <label for="state">State:</label>
+  <select class="form-control"   placeholder="Enter your State" formControlName="state" [(ngModel)]="selectedState" (change)="onCountryChange()">
+  <option *ngFor="let state of filteredStates" [value]="state">{{ state }}</option>
+  </select>
+  </div>
+
+          <div>
+            <p>Have an Account <a [routerLink]="['/signup']">Login</a></p>
+          </div>
+          <div class="cont">
+            <button type="submit" class="btn btn-primary" >Create Account</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+
+  
