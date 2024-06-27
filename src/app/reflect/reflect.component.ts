@@ -27,13 +27,11 @@ onSubmit() {
   }
  
 }
+isemailfilled=false;
+OnClickOtp(){
+this.isemailfilled=true;
 
-
-// passKeyValidator(control: FormControl): { [key: string]: boolean } | null {
-//   const passKey = control.value;
-//   if (passKey!== '0000') {
-//     return { invalidPassKey: true };
-//   }
-//   return null;
-// }
 }
+}
+
+
