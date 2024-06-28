@@ -1,0 +1,22 @@
+nav{
+    text-align: center;
+}
+ 
+.nav-display {
+    background-color:#76ABAE;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+ 
+.btni {
+    background-color:#76ABAE;
+    border-color: #76ABAE;
+    transition: background-color 0.3s, color 0.3s;
+    color: white;
+}
+ 
+.btni:hover {
+    background-color:#76ABAE;
+    color: white;
+}

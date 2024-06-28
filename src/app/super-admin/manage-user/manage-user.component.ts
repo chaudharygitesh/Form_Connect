@@ -8,6 +8,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
 export class ManageUserComponent {
+logout() {
+
+}
+navigateshowUsers() {
+
+}
+navigateAdduser() {
+
+}
   
   users: Array<{name:string,email:string,contact:string,designation:string}> = [];
     userForm! : FormGroup;
@@ -15,7 +24,7 @@ export class ManageUserComponent {
     formSubmitted:boolean = false;
     ngOnInit(): void {
       this.userForm = new FormGroup({
-        name:new FormControl('',[Validators.required]),
+        name:new FormControl('',[Validators.required,Validators.min(3)]),
         email:new FormControl('',[Validators.required,Validators.email]),
         contact:new FormControl('',[Validators.required,Validators.pattern('^[0-9]{10}$')]),
         designation:new FormControl('',[Validators.required])

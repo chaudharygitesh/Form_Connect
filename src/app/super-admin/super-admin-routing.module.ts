@@ -4,7 +4,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 
 const routes: Routes = [
   {
-    path:'user',
+    path:'',
     component:ManageUserComponent
   }
 ];

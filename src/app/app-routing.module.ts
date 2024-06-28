@@ -10,7 +10,7 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
 const routes: Routes = [
   {path:'signup',component:LoginComponent},
   {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
-  {path:'Register',component:RegistrationComponent},
+  {path:'',component:RegistrationComponent},
   {path:'reflect',component:ReflectComponent},
   {path:'passkey',component:CreatepasswordComponent},
   {
