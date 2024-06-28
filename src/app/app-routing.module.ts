@@ -12,7 +12,11 @@ const routes: Routes = [
   {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
   {path:'Register',component:RegistrationComponent},
   {path:'reflect',component:ReflectComponent},
-  {path:'passkey',component:CreatepasswordComponent}
+  {path:'passkey',component:CreatepasswordComponent},
+  {
+    path:'superadmin',
+    loadChildren:()=>import('./super-admin/super-admin-routing.module').then(m=>m.SuperAdminRoutingModule)
+  }
 ];
 
 @NgModule({

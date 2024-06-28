@@ -10,6 +10,8 @@ import { CopyPasteBlockDirective } from './login/CopyPasteBlock.directive';
 import { RegistrationComponent } from './registration/registration.component';
 import { ReflectComponent } from './reflect/reflect.component';
 import { CreatepasswordComponent } from './createpassword/createpassword.component';
+import { SuperAdminModule } from './super-admin/super-admin.module';
+import { SuperAdminRoutingModule } from './super-admin/super-admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SuperAdminModule,SuperAdminRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

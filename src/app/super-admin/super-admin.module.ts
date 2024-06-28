@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// import { ManageUserComponent } from './manage-user/manage-user.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
@@ -9,7 +12,9 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
     ManageUserComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SuperAdminModule { }
