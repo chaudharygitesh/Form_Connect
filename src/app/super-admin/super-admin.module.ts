@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManageUserComponent } from './manage-user/manage-user.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 
 @NgModule({
   declarations: [
-    ManageUserComponent
+    ManageUserComponent,
+    AdminLoginComponent
   ],
   imports: [
     CommonModule,

@@ -4,56 +4,138 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
-  styleUrls: ['./manage-user.component.scss']
+  styleUrls: ['./manage-user.component.scss'],
 })
-
 export class ManageUserComponent {
-logout() {
+  logout() {}
+  navigateshowUsers() {}
+  navigateAdduser() {}
 
-}
-navigateshowUsers() {
+  users: Array<{
+    name: string;
+    email: string;
+    contact: string;
+    designation: string;
+    password: string;
+  }> = [];
+  userForm!: FormGroup;
+  editForm: boolean = false;
+  formSubmitted: boolean = false;
 
-}
-navigateAdduser() {
+  Isactive = false;
 
-}
-  
-  users: Array<{name:string,email:string,contact:string,designation:string}> = [];
-    userForm! : FormGroup;
-    editForm:boolean = false;
-    formSubmitted:boolean = false;
-    ngOnInit(): void {
-      this.userForm = new FormGroup({
-        name:new FormControl('',[Validators.required,Validators.min(3)]),
-        email:new FormControl('',[Validators.required,Validators.email]),
-        contact:new FormControl('',[Validators.required,Validators.pattern('^[0-9]{10}$')]),
-        designation:new FormControl('',[Validators.required])
-      })
+  ngOnInit(): void {
+    this.userForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.min(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      contact: new FormControl('', [Validators.required]),
+      designation: new FormControl('', [Validators.required]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+        ),
+      ]),
+    });
+    let stored = localStorage.getItem('users');
+    this.storedData = stored != null ? JSON.parse(stored) : null;
+  }
+  storedData: any = [];
+  userSubmitHandler() {
+    console.log(this.userForm.value);
+    // this.users.push();
+    console.log(this.users);
+    // this.userForm.reset();
+    var obj1 = {
+      name: this.userForm.value.name,
+      email: this.userForm.value.email,
+      contact: this.userForm.value.contact,
+      designation: this.userForm.value.designation,
+      password: this.userForm.value.password,
+      status: 0,
+    };
+
+    let arr: any = [];
+    if (localStorage.getItem('users') == null) {
+      localStorage.setItem('users', JSON.stringify(arr));
     }
- 
-    userSubmitHandler(){
-      console.log(this.userForm.value);
-      this.users.push(this.userForm.value);
-      console.log(this.users);
-      this.userForm.reset();
-    }
- 
-    editSubmitHandler(){
-      this.users.forEach(user => {
-        if(user.email === this.userForm.value.email){
-          user.name = this.userForm.value.name;
-          user.contact = this.userForm.value.contact;
-          user.designation = this.userForm.value.designation;
-          user.email = this.userForm.value.email;
+
+    let stored = localStorage.getItem('users');
+    this.storedData = stored != null ? JSON.parse(stored) : null;
+    this.storedData.push(obj1);
+    localStorage.setItem('users', JSON.stringify(this.storedData));
+    console.log(this.storedData);
+  }
+  editSubmitHandler() {
+    this.users.forEach((user) => {
+      if (user.email === this.userForm.value.email) {
+        user.name = this.userForm.value.name;
+        user.contact = this.userForm.value.contact;
+        user.designation = this.userForm.value.designation;
+        user.email = this.userForm.value.email;
+        user.password = this.userForm.value.password;
+      }
+    });
+    this.editForm = false;
+    this.userForm.reset();
+  }
+
+  activehandle(email: any) {
+      this.storedData.forEach(
+        (user: {
+          name: any;
+          contact: any;
+          designation: any;
+          email: any;
+          password: any;
+          status: any;
+        }) => {
+          if (user.email === email) {
+            if(user.status==0){
+              user.status=1;
+            }
+            else{
+              user.status=0;
+            }
+          }
         }
-      });
-      this.editForm = false;
-      this.userForm.reset();
-   
-    }
- 
-    editHandler(user:any){
-      this.editForm = true;
-      this.userForm.patchValue({name:user.name,email:user.email,contact:user.contact,designation:user.designation});
-    }
+      );
+      localStorage.setItem('users', JSON.stringify(this.storedData));
+
+  }
+  deleteHandle(email: any) {
+    this.storedData.forEach(
+      (user: {
+        name: any;
+        contact: any;
+        designation: any;
+        email: any;
+        password: any;
+        status: any;
+      }) => {
+        if (user.email === email) {
+          this.storedData = this.storedData.filter(
+            (u: {
+              name: any;
+              contact: any;
+              designation: any;
+              email: any;
+              password: any;
+            }) => u.email !== email
+          );
+          localStorage.setItem('users', JSON.stringify(this.storedData));
+        }
+      }
+    );
+  }
+  editHandler(user: any) {
+    this.editForm = true;
+    this.userForm.patchValue({
+      name: user.name,
+      email: user.email,
+      contact: user.contact,
+      designation: user.designation,
+      password: user.password,
+    });
+  }
 }

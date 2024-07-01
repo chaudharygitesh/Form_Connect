@@ -1,22 +1,121 @@
-nav{
-    text-align: center;
-}
- 
-.nav-display {
-    background-color:#76ABAE;
-    color: white;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    text-align: center;
-}
- 
-.btni {
-    background-color:#76ABAE;
-    border-color: #76ABAE;
-    transition: background-color 0.3s, color 0.3s;
-    color: white;
-}
- 
-.btni:hover {
-    background-color:#76ABAE;
-    color: white;
-}
+  }
+  
+  /* Navbar Styles */
+  .nav-display {
+    background-color: #76ABAE;
+    color: #31363F;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-left h1 {
+    margin: 0;
+  }
+  
+  .navbar-right .btn.btni {
+    background-color: #31363F;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-right .btn.btni:hover {
+    background-color: #76ABAE;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    color: #31363F;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    background-color: #EEEEEE;
+    border: 1px solid #76ABAE;
+    padding: 10px;
+    color: #222831;
+  }
+  
+  .form-group input.ng-invalid.ng-touched {
+    border-color: #dc3545;
+  }
+  
+  .btn.btn-primary {
+    background-color: #76ABAE;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #31363F;
+  }
+  
+  /* Table Styles */
+  .table {
+    background-color: #EEEEEE;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #76ABAE;
+  }
+  
+  .table th {
+    background-color: #76ABAE;
+    color: #EEEEEE;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table .btn.btn-primary,
+  .table .btn.btn-danger {
+    background-color: #76ABAE;
+    color: #EEEEEE;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .table .btn.btn-primary:hover {
+    background-color: #31363F;
+  }
+  
+  .table .btn.btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .table .btn.btn-danger:hover {
+    background-color: #c82333;
+  }
+  
