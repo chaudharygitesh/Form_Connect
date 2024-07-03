@@ -18,6 +18,9 @@ export class AdminLoginComponent {
 })
 constructor(private router :Router) {}
 
+usergo(){
+  this.router.navigate(['/Buyer']);
+}
   datafetch(){
     var arr=localStorage.getItem('users')
     var obj=arr?JSON.parse(arr):[]
@@ -32,7 +35,7 @@ constructor(private router :Router) {}
       if(user.email===this.adminlogin.value.email && user.password===this.adminlogin.value.password){
 
         if(user.status===1){
-          this.router.navigate(['/SellerPortal'],{queryParams:{email:this.adminlogin.value.email}})
+          this.router.navigate(['/men'],{queryParams:{email:this.adminlogin.value.email}})
         }
         else{
           alert("Your account is not activated")

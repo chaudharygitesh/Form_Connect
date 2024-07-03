@@ -68,7 +68,9 @@ modal: Modal | undefined;
       console.log('Form submitted:', this.productForm.value);
     }
   }
-
+  menSeller(){
+    this.router.navigate(['/men']);
+  }
   WomenSeller(){
     this.router.navigate(['/women']);
   }

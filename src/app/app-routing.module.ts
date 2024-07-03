@@ -14,8 +14,12 @@ const routes: Routes = [
   {path:'reflect',component:ReflectComponent},
   {path:'passkey',component:CreatepasswordComponent},
   {
-    path:'',
+    path:'abc',
     loadChildren:()=>import('./super-admin/super-admin-routing.module').then(m=>m.SuperAdminRoutingModule)
+  },
+  {
+    path:'shop',
+    loadChildren:()=>import('./shop/shop-routing.module').then(m=>m.shopRoutingModule)
   }
 ];
 

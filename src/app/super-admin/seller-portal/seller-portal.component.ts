@@ -11,8 +11,8 @@ export class SellerPortalComponent {
   admin(){
     this.router.navigate(['/ManageUser']);
   }
-  Menuser(){
-    this.router.navigate(['/men']);
+  sellerlogin(){
+    this.router.navigate(['/AdminLogin']);
   }
   womenuser(){
     this.router.navigate(['/women']);

@@ -65,8 +65,11 @@ onSubmit() {
     console.log('Form submitted:', this.productForm.value);
   }
 }
-MenSeller(){
+menSeller(){
   this.router.navigate(['/men']);
+}
+WomenSeller(){
+  this.router.navigate(['/women']);
 }
 Sellerlogin(){
   this.router.navigate(['/AdminLogin']);
