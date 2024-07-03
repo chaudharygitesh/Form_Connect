@@ -12,6 +12,8 @@ import { ReflectComponent } from './reflect/reflect.component';
 import { CreatepasswordComponent } from './createpassword/createpassword.component';
 import { SuperAdminModule } from './super-admin/super-admin.module';
 import { SuperAdminRoutingModule } from './super-admin/super-admin-routing.module';
+import { SellerPortalComponent } from './super-admin/seller-portal/seller-portal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { SuperAdminRoutingModule } from './super-admin/super-admin-routing.modul
     CopyPasteBlockDirective,
     RegistrationComponent,
     ReflectComponent,
-    CreatepasswordComponent
+    CreatepasswordComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SuperAdminModule,SuperAdminRoutingModule
+    SuperAdminModule,SuperAdminRoutingModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

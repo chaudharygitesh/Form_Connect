@@ -10,11 +10,11 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
 const routes: Routes = [
   {path:'signup',component:LoginComponent},
   {path:'home',component:HomeComponent,canActivate: [AuthGuard]},
-  {path:'',component:RegistrationComponent},
+  {path:'Register',component:RegistrationComponent},
   {path:'reflect',component:ReflectComponent},
   {path:'passkey',component:CreatepasswordComponent},
   {
-    path:'superadmin',
+    path:'',
     loadChildren:()=>import('./super-admin/super-admin-routing.module').then(m=>m.SuperAdminRoutingModule)
   }
 ];

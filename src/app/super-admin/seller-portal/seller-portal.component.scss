@@ -1,0 +1,26 @@
+.nav-display {
+    background-color: #76ABAE;
+    color: #31363F;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-left h1 {
+    margin: 0;
+  }
+  
+  .navbar-right .btn.btni {
+    background-color: #31363F;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-right .btn.btni:hover {
+    background-color: #76ABAE;
+  }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-user',
@@ -7,10 +8,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./manage-user.component.scss'],
 })
 export class ManageUserComponent {
-  logout() {}
-  navigateshowUsers() {}
-  navigateAdduser() {}
+  constructor(private router :Router) {}
+  adminlogin(){
+    this.router.navigate(['/AdminLogin']);
+  }
 
+  sellerPortal(){
+    this.router.navigate(['/Sellerportal']);
+  }
+  register(){
+    this.router.navigate(['/Register'])
+  }
+  logout() {}
   users: Array<{
     name: string;
     email: string;

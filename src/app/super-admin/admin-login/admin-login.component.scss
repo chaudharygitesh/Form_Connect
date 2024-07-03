@@ -1,0 +1,97 @@
+/* Body */
+body {
+    background-color: #EEEEEE;
+  }
+  
+  .nav-display {
+    background-color: #76ABAE;
+    color: #31363F;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.cont{
+margin-top: 100px;
+}
+  .navbar-left h1 {
+    margin: 0;
+  }
+  
+  .navbar-right .btn.btni {
+    background-color: #31363F;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-right .btn.btni:hover {
+    background-color: #76ABAE;
+  }
+  /* Login Form */
+  .login-form {
+    background-color: #76ABAE;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form h2 {
+    color: #31363F;
+    font-weight: bold;
+  }
+  
+  /* Form Groups */
+  .form-group label {
+    color: #31363F;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border: none;
+    background-color: #EEEEEE;
+    color: #31363F;
+    padding: 12px 20px;
+    border-radius: 5px;
+  }
+  
+  .form-control::placeholder {
+    color: #222831;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group div span {
+    color: red;
+  }
+  
+  /* Sign Up Link */
+  .login-form p a {
+    color: #31363F;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .form-group label {
+    color: #31363F;
+    font-weight: bold;
+  }
+  
+  /* Submit Button */
+  .btn-primary {
+    background-color: #31363F;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #222831;
+  }
+  

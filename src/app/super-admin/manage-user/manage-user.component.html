@@ -5,9 +5,9 @@
       <h1>Admin controls</h1>
     </div>
     <div class="navbar-right">
-      <button class="btn btni" (click)="navigateAdduser()">Add Users</button>
-      <button class="btn btni" (click)="navigateshowUsers()">Show Users</button>
-      <button class="btn btni" (click)="logout()">Logout</button>
+      <button class="btn btni" (click)="sellerPortal()">Seller Portal</button>
+      <button class="btn btni" (click)="register()">Register</button>
+      <button class="btn btni" (click)="adminlogin()">Seller Login</button>
     </div>
 </nav>
 <div>
@@ -80,8 +80,8 @@
                     <td>
                         <button class="btn btn-primary" (click)="editHandler(user)">Edit</button>
                         <button class="btn btn-danger"   (click)="deleteHandle(user.email) " >Delete</button>
-                        <button *ngIf="user.status==0" class="btn btn-warning" (click)="activehandle(user.email)">IsActive</button>
-                        <button *ngIf="user.status==1" class="btn btn-secondary" (click)="activehandle(user.email)">NotActive</button>
+                        <button *ngIf="user.status==1" class="btn btn-warning" (click)="activehandle(user.email)">IsActive</button>
+                        <button *ngIf="user.status==0" class="btn btn-secondary" (click)="activehandle(user.email)">NotActive</button>
                     </td>
                 </tr>
             </tbody>

@@ -1,1 +1,37 @@
-<p>admin-login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Seller Form</title>>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar nav-display ">
+        <div class="navbar-left">
+          <h1>Admin controls</h1>
+        </div>
+        <div class="navbar-right">
+          <button class="btn btni" (click)="registerbtn()">Register</button>
+          <button class="btn btni" >Admin Portal</button>
+        </div>
+    </nav>
+      <div  class="col-md-6 offset-md-3 cont">
+        <form [formGroup]="adminlogin"   class="login-form"  >
+          <h2 class="text-center mb-4">Seller Login</h2>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input  type="email" formControlName="email" class="form-control" placeholder="Enter your Email" required CopyPasteBlockDirective>
+            <div *ngIf="adminlogin.get('email')?.touched &&
+            adminlogin.get('email')?.invalid"><span style="color: red;">Email Required</span></div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password<span style="color: red;">*</span></label>
+            <input  type="password" formControlName="password" class="form-control" placeholder="Enter your password" required CopyPasteBlockDirective>
+            <div
+            *ngIf="adminlogin.get('password')?.touched &&
+            adminlogin.get('password')?.invalid"><span style="color: red;">password Required</span></div>
+          </div>
+          <button type="submit" (click)="datafetch()"  class="btn btn-primary ">Login</button>
+        </form>
+  </div>
+</body>
+</html>
