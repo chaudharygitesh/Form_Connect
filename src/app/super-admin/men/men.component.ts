@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Modal } from 'bootstrap';
 
-interface Card {
-  title: string;
-  source: string;
-  description: string;
-}
+// interface Card {
+//   title: string;
+//   source: string;
+//   description: string;
+// }
 interface Product {
   productName: string;
   productColor:string;
@@ -22,20 +22,22 @@ interface Product {
 export class MenComponent {
 
   inputNode: any ;
-  title: any;
-  source: any;
-  file: any;
+  // title: any;
+  // source: any;
+  // file: any;
   description: any;
-  cards: Card[] = [];
+  // cards: Card[] = [];
   product: Product[] = [];
 modal: Modal | undefined;
 
   ngOnInit() {
     if (localStorage.getItem('collections') === null) {
-      localStorage.setItem('collections', JSON.stringify(this.cards));
+      localStorage.setItem('collections', JSON.stringify(this.product));
     }
     let getcollections = localStorage.getItem('collections');
-    this.cards = getcollections ? JSON.parse(getcollections) : [];
+    localStorage.setItem('collections', JSON.stringify(this.product));
+    this.product = getcollections ? JSON.parse(getcollections) : [];
+  
   }
   productForm: FormGroup;
 
@@ -47,13 +49,13 @@ modal: Modal | undefined;
       productPhoto: new FormControl('', Validators.required)
     });
   }
-  FileChange(event:any) {
-    debugger;
-    // document.getElementById("productPhoto")?.file[0].path;
-    this.inputNode= this.file.value.replace("C:\\fakepath\\", "");
+//   FileChange(event:any) {
+//     debugger;
+//     // document.getElementById("productPhoto")?.file[0].path;
+//     this.inputNode= this.file.value.replace("C:\\fakepath\\", "");
 
  
-}
+// }
 
   onSubmit() {
     if (this.productForm.valid) {
@@ -63,9 +65,12 @@ modal: Modal | undefined;
         productColor: this.productForm.value.productColor,
         productPrice: this.productForm.value.productPrice,
         productPhoto: this.productForm.value.productPhoto
-      })
+      });
 
       console.log('Form submitted:', this.productForm.value);
+      // let getcollections1 = localStorage.getItem('collections');
+
+      localStorage.setItem('collections', JSON.stringify(this.product));
     }
   }
   menSeller(){

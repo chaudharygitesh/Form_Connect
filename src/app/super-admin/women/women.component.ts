@@ -31,10 +31,11 @@ modal: Modal | undefined;
 
   ngOnInit() {
     if (localStorage.getItem('collections') === null) {
-      localStorage.setItem('collections', JSON.stringify(this.cards));
+      localStorage.setItem('collections', JSON.stringify(this.product));
     }
     let getcollections = localStorage.getItem('collections');
-    this.cards = getcollections ? JSON.parse(getcollections) : [];
+    localStorage.setItem('collections', JSON.stringify(this.product));
+    this.product = getcollections ? JSON.parse(getcollections) : [];
   }
 
   productForm: FormGroup;
@@ -47,11 +48,11 @@ modal: Modal | undefined;
       productPhoto: new FormControl('', Validators.required)
     });
   }
-  FileChange(event:any) {
-    debugger;
-    // this.file = event.target.files[0];
-    this.inputNode= this.file.value.replace("C:\\fakepath\\", "");
-}
+  // FileChange(event:any) {
+  //   debugger;
+  //   // this.file = event.target.files[0];
+  //   this.inputNode= this.file.value.replace("C:\\fakepath\\", "");
+// }
 onSubmit() {
   if (this.productForm.valid) {
     debugger;
@@ -63,6 +64,7 @@ onSubmit() {
     })
 
     console.log('Form submitted:', this.productForm.value);
+    localStorage.setItem('collections', JSON.stringify(this.product));
   }
 }
 menSeller(){

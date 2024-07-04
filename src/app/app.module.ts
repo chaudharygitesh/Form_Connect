@@ -13,7 +13,10 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
 import { SuperAdminModule } from './super-admin/super-admin.module';
 import { SuperAdminRoutingModule } from './super-admin/super-admin-routing.module';
 import { SellerPortalComponent } from './super-admin/seller-portal/seller-portal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
+import { animation } from '@angular/animations';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    SuperAdminModule,SuperAdminRoutingModule, BrowserAnimationsModule
+    SuperAdminModule,SuperAdminRoutingModule, BrowserAnimationsModule,
+    ShopModule
+    ,ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [provideAnimations(),provideToastr()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
