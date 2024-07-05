@@ -6,20 +6,27 @@
     <div class="navbar-right col-md-7">
       <h1>E-Commerce</h1>
     </div>
-    <div *ngFor="let p of product" class="col col-6 card collection-cards" style="width: 18rem;">
+  </nav> 
+  <div class="d-flex">
+    <div *ngFor="let p of product" class="col col-6 card collection-cards" style=" width: 18rem;">
         <img src="{{p.productPhoto}}" class="card-img-top" width="100px" height="270px">
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <p class="card-text">{{p.productName}}</p>
+          <p class="card-text">{{p.productName}}</p>  
           <p class="card-text">{{p.productColor}}</p>
           <p class="card-text">{{p.productPrice}}</p>
-          <p class="card-text">{{p.productPhoto}}</p>
-          
-          <button class="btn btn-primary">Add Item
+          <!-- <p class="card-text">{{p.productPhoto}}</p> -->
+           <div>
+            <input type="number"  [formControl]="capacity">
+            <button >+</button>
+            <button >-</button>
+           </div>
+            
+          <button class="btn btn-primary">Buy
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
               <path d="M8 8a.5.5 0 0 1 .5.5v-3.5h3.5a.5.5 0 0 1 0 1h-3.5v3.5a.5.5 0 0 1-1 0v-3.5h-3.5a.5.5 0 0 1 0-1h3.5v-3.5a.5.5 0 0 1 1 0v3.5z"/>
             </svg>
           </button>
         </div>
       </div>
-</nav> 
+    </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BuyerComponent } from './buyer/buyer.component';
 
 import { BrowserModule } from '@angular/platform-browser'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { BrowserModule } from '@angular/platform-browser'
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ]
 })
 export class ShopModule { }

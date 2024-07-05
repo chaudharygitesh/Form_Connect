@@ -67,6 +67,9 @@ onSubmit() {
     localStorage.setItem('collections', JSON.stringify(this.product));
   }
 }
+Buyer(){
+  this.router.navigate(['/shop/buyer']);
+}
 menSeller(){
   this.router.navigate(['/men']);
 }
