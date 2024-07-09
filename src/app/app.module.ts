@@ -17,7 +17,7 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { animation } from '@angular/animations';
 import { ShopModule } from './shop/shop.module';
-
+import { HttpClientModule, provideHttpClient } from  '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +36,10 @@ import { ShopModule } from './shop/shop.module';
     FormsModule,
     SuperAdminModule,SuperAdminRoutingModule, BrowserAnimationsModule,
     ShopModule
-    ,ToastrModule.forRoot()
+    ,ToastrModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [provideAnimations(),provideToastr()],
+  providers: [provideAnimations(),provideToastr(),provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

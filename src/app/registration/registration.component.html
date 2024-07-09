@@ -25,7 +25,7 @@
 
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="number" class="form-control" formControlName="phone"  placeholder="Enter your Phone"required>
+            <input type="text" class="form-control" formControlName="phone"  placeholder="Enter your Phone"required>
             <div *ngIf="registrationForm.get('phone')?.touched &&
             registrationForm.get('phone')?.invalid" style="color: red;">Phone Required</div>
          
@@ -39,7 +39,7 @@
           </div>
           <div class="form-group">
             <label for="age">Age</label>
-            <input type="number" class="form-control"  formControlName="age" placeholder="Enter your Age" required min="0">
+            <input type="text" class="form-control"  formControlName="age" placeholder="Enter your Age" required min="0">
             <div *ngIf="registrationForm.get('age')?.touched &&
             registrationForm.get('age')?.invalid" style="color: red;">Age Required</div>
           </div>
