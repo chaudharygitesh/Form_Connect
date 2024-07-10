@@ -164,13 +164,9 @@ export class RegistrationComponent {
   constructor(private shopapiservice: ShopapiService) {}
   onSubmit() {
     debugger;
-    // this.submitted = true;
-    // if (this.registrationForm.valid) {
-    //   console.log('Form submitted:', this.registrationForm.value);
-    // }
     console.log(this.registrationForm.value)
     this.shopapiservice
-      .getShopData(this.registrationForm.value)
+      .sendshopdata(this.registrationForm.value)
       .subscribe((res) => {
         console.log(res);
       });

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ShopapiService } from 'src/app/service/shopapi.service';
 
 @Component({
   selector: 'app-manage-user',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./manage-user.component.scss'],
 })
 export class ManageUserComponent {
-  constructor(private router :Router) {}
+  constructor(private router :Router,private shopapiservice:ShopapiService) {}
   adminlogin(){
     this.router.navigate(['/AdminLogin']);
   }
@@ -32,7 +33,7 @@ export class ManageUserComponent {
   formSubmitted: boolean = false;
 
   Isactive = false;
-
+  storedData: any = [];
   ngOnInit(): void {
     this.userForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.min(3)]),
@@ -46,10 +47,15 @@ export class ManageUserComponent {
         ),
       ]),
     });
-    let stored = localStorage.getItem('users');
-    this.storedData = stored != null ? JSON.parse(stored) : null;
-  }
-  storedData: any = [];
+      this.shopapiservice.getdatasellercred().subscribe((res)=>{
+        this.storedData = res;
+        console.log(res);
+      });
+
+    // let stored = localStorage.getItem('users');
+    } 
+
+ 
   userSubmitHandler() {
     console.log(this.userForm.value);
     // this.users.push();
@@ -65,14 +71,14 @@ export class ManageUserComponent {
     };
 
     let arr: any = [];
-    if (localStorage.getItem('users') == null) {
-      localStorage.setItem('users', JSON.stringify(arr));
-    }
+    // if (localStorage.getItem('users') == null) {
+    //   localStorage.setItem('users', JSON.stringify(arr));
+    // }
 
-    let stored = localStorage.getItem('users');
-    this.storedData = stored != null ? JSON.parse(stored) : null;
-    this.storedData.push(obj1);
-    localStorage.setItem('users', JSON.stringify(this.storedData));
+    // let stored = localStorage.getItem('users');
+    // this.storedData = stored != null ? JSON.parse(stored) : null;
+    // this.storedData.push(obj1);
+    // localStorage.setItem('users', JSON.stringify(this.storedData));
     console.log(this.storedData);
   }
   editSubmitHandler() {
@@ -109,8 +115,18 @@ export class ManageUserComponent {
           }
         }
       );
-      localStorage.setItem('users', JSON.stringify(this.storedData));
+      // localStorage.setItem('users', JSON.stringify(this.storedData));
 
+  }
+  onSubmit(){
+    this.shopapiservice.postdatasellercred(this.userForm.value)
+    .subscribe((rest) => {
+      console.log(rest);
+    });
+    this.shopapiservice.getdatasellercred().subscribe((res)=>{
+      this.storedData = res;
+      console.log(res);
+    });
   }
   deleteHandle(email: any) {
     this.storedData.forEach(
@@ -132,7 +148,7 @@ export class ManageUserComponent {
               password: any;
             }) => u.email !== email
           );
-          localStorage.setItem('users', JSON.stringify(this.storedData));
+          // localStorage.setItem('users', JSON.stringify(this.storedData));
         }
       }
     );
@@ -147,4 +163,5 @@ export class ManageUserComponent {
       password: user.password,
     });
   }
+
 }

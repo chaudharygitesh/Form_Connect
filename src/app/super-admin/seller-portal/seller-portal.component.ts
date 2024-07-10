@@ -14,6 +14,9 @@ export class SellerPortalComponent {
   sellerlogin(){
     this.router.navigate(['/AdminLogin']);
   }
+  Men(){
+    this.router.navigate(['/men']);
+  }
   womenuser(){
     this.router.navigate(['/women']);
   }

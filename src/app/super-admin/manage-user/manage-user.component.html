@@ -13,7 +13,7 @@
 <div>
     <div class="d-flex justify-content-center flex-column align-items-center">
       
-        <form [formGroup]="userForm">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
             <div class="d-flex gap-5 ">
                 <div class="form-group">
                     <label class="form-label">Name</label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Contact</label>
-                    <input  class="form-control" type="number" formControlName="contact">
+                    <input  class="form-control" type="text" formControlName="contact">
                     <div *ngIf="userForm.get('contact')?.invalid&&(userForm.get('contact')?.dirty||userForm.get('contact')?.touched)">
                         <div *ngIf="formSubmitted || userForm.get('contact')?.hasError('required')" class="text-danger">Contact Number is required.</div>
                         <div *ngIf="formSubmitted || userForm.get('contact')?.hasError('pattern')" class="text-danger">Contact should be of 10 digits</div>
