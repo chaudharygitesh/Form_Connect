@@ -18,4 +18,10 @@ export class ShopapiService {
   postdatasellercred(rest:any){
     return this.httpclient.post<any>('https://localhost:7157/api/Sellercredentials',rest)
   }
+  deletesellercred(id:any){
+    return this.httpclient.delete<any>('https://localhost:7157/api/Sellercredentials/Remove/'+id)
+  }
+  updatesellerred(res:any,id:any){
+    return this.httpclient.put<any>('https://localhost:7157/api/Sellercredentials/'+id,res); 
+  }
 }
