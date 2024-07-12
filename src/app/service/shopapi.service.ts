@@ -21,7 +21,7 @@ export class ShopapiService {
   deletesellercred(id:any){
     return this.httpclient.delete<any>('https://localhost:7157/api/Sellercredentials/Remove/'+id)
   }
-  updatesellerred(res:any,id:any){
-    return this.httpclient.put<any>('https://localhost:7157/api/Sellercredentials/'+id,res); 
+  updatesellerred(res:any){
+    return this.httpclient.put<any>('https://localhost:7157/api/Sellercredentials/',res); 
   }
 }

@@ -36,6 +36,7 @@ export class ManageUserComponent {
   storedData: any = [];
   ngOnInit(): void {
     this.userForm = new FormGroup({
+      id: new FormControl(),
       name: new FormControl('', [Validators.required, Validators.min(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       contact: new FormControl('', [Validators.required]),
@@ -165,6 +166,7 @@ export class ManageUserComponent {
   editHandler(user: any,id:any) {
     this.editForm = true;
     this.userForm.patchValue({
+      id:user.id, 
       name: user.name,
       email: user.email,
       contact: user.contact,
@@ -173,17 +175,27 @@ export class ManageUserComponent {
     });
     this.uniqueId = id;
     }
+    onlylettervalidate(e:any){
+      return (e.charCode>=65 && e.charCode<=90)||
+      (e.charCode>=97 && e.charCode<=122)
+    }
+    onlynumbervalidate(e:any){
+      return (e.charCode>=48 && e.charCode<=57)||
+      (e.charCode>=48 && e.charCode<=57)}
+      getandupdate(){
+        this.shopapiservice.getdatasellercred().subscribe((res)=>{
+          this.storedData = res;
+          console.log("hello get",this.storedData);
+        });
+      }
     editSubmitHandler() {
-      this.shopapiservice.updatesellerred(this.userForm.value,this.uniqueId)
+      console.log(this.userForm.value);
+      this.shopapiservice.updatesellerred(this.userForm.value)
        .subscribe((res) => {
-          console.log(res);
-          this.shopapiservice.getdatasellercred().subscribe((res)=>{
-            this.storedData = res;
-            this.shopapiservice.getdatasellercred().subscribe((res)=>{
-              this.storedData = res;
-              console.log(res);
-            });
-          });
+          console.log("response",res);
+          this.getandupdate();
+        },(error) => {
+          console.log("error",error);
         });
       this.editForm = false;
       this.userForm.reset();
